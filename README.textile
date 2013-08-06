@@ -1,0 +1,39 @@
+h1. The QML Script Console
+
+ECMAScript console plugin for debugging QML applications. Adds a "ScriptConsole" component which opens a script editor window and allows code to executed in that context.
+
+For instance consider:
+
+<pre>
+<code>
+import QtQuick 1.0
+import com.nokia.ScriptConsole 1.0
+
+Text {
+    text: "Hello, ECMAScript!"
+    ScriptConsole {}
+}
+</code>
+</pre>
+
+Entering "parent.text = 'Hello, echo!'" into the script console allows you to change the text at runtime. The idea is to allow experimenting with ECMAScript expressions interactively.
+
+h2. Build instructions
+
+You need a full Qt >4.7 build environment. For building the plugin enter (from the source folder):
+<pre>
+<code>
+qmake
+make
+</code>
+</pre>
+
+Open the 'test.qml' to check it is working:
+<pre>
+qmlviewer -I $PWD test.qml
+</pre>
+
+You have to pass the plugin path to the QML viewer whenever you want to use the plugin. Check the imports by optionally setting QML_IMPORT_TRACE, like:
+<pre>
+QML_IMPORT_TRACE=1 qmlviewer -I path/to/qmlscripconsole myapp.qml
+</pre>
