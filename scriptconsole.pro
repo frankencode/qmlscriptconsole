@@ -3,7 +3,7 @@ CONFIG += qt plugin
 QT += declarative
 
 DESTDIR = com/nokia/ScriptConsole
-TARGET = qmlmediaflowplugin
+TARGET = qmlscriptconsoleplugin
 
 HEADERS += \
     scripteditor.h \
